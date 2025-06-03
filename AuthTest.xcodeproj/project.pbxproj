@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		90FC58C12DED8AD90088E91C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 90FC58C02DED8AD90088E91C /* CombineMoya */; };
+		90FC58C32DED8AD90088E91C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 90FC58C22DED8AD90088E91C /* Moya */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		90FC58912DED6E1A0088E91C /* AuthTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		90FC58B02DED7DBF0088E91C /* Exceptions for "AuthTest" folder in "AuthTest" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 90FC58902DED6E1A0088E91C /* AuthTest */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		90FC58932DED6E1A0088E91C /* AuthTest */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90FC58B02DED7DBF0088E91C /* Exceptions for "AuthTest" folder in "AuthTest" target */,
+			);
 			path = AuthTest;
 			sourceTree = "<group>";
 		};
@@ -23,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90FC58C32DED8AD90088E91C /* Moya in Frameworks */,
+				90FC58C12DED8AD90088E91C /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +85,8 @@
 			);
 			name = AuthTest;
 			packageProductDependencies = (
+				90FC58C02DED8AD90088E91C /* CombineMoya */,
+				90FC58C22DED8AD90088E91C /* Moya */,
 			);
 			productName = AuthTest;
 			productReference = 90FC58912DED6E1A0088E91C /* AuthTest.app */;
@@ -94,6 +116,9 @@
 			);
 			mainGroup = 90FC58882DED6E1A0088E91C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 90FC58922DED6E1A0088E91C /* Products */;
 			projectDirPath = "";
@@ -251,10 +276,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AuthTest/Preview Content\"";
 				DEVELOPMENT_TEAM = HQ9Q448BQP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AuthTest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,10 +306,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AuthTest/Preview Content\"";
 				DEVELOPMENT_TEAM = HQ9Q448BQP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AuthTest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,6 +351,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90FC58C02DED8AD90088E91C /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		90FC58C22DED8AD90088E91C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90FC58892DED6E1A0088E91C /* Project object */;
 }

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AuthTestApp: App {
+    @StateObject private var authManager = AuthManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(authManager)
         }
     }
 }
