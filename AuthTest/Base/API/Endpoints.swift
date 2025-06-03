@@ -32,9 +32,8 @@ extension Endpoints: TargetType {
     
     var method: Moya.Method {
         switch self{
-        case .login:
-            return .post
-        case .signup:
+        case .login,
+            .signup:
             return .post
         }
     }

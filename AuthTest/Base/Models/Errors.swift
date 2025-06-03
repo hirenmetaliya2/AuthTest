@@ -11,9 +11,8 @@ enum Errors: String, Error{
     case invalidEmail = "Invalid email"
     case invalidPassword = "Invalid password"
     case invalidToken = "Invalid token"
-    case invalidRefreshToken = "Invalid refresh token"
     case jsonDecodingFailed = "Json decoding failed"
     case jsonEncodingFailed = "Json encoding failed"
-    case stringConvertionFailed = "String conversion failed"
+    case missingAccessToken = "Missing access token"
     
 }

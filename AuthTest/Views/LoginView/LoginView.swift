@@ -11,61 +11,19 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var path: NavigationPath
-    @State var email: String = ""
-    @State var password: String = ""
-    @StateObject var registerVM = SignupViewModel()
     @StateObject var loginVM = LoginViewModel()
-    @State var errors: String?
-    @State private var goToHome: Bool = false
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var authManager : AuthManager
     
     
     var body: some View {
-            VStack{
-                Text("AuthTest")
-                    .font(.title)
-                    .fontWeight(.bold)
-            }
-            
-            .padding()
+        title
             ZStack{
                 VStack{
-                    Text("Login Here")
-                        .font(.headline)
-                        .padding(.bottom)
-                    TextField("Enter Email", text: $email)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.gray.opacity(0.3))
-                        .cornerRadius(20)
-                        .textInputAutocapitalization(.never)
-                    SecureField("Enter Password", text: $password)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.gray.opacity(0.3))
-                        .cornerRadius(20)
-                        .textInputAutocapitalization(.never)
-                    
-                    HStack {
-                        Button{
-                            Task{
-                                loginVM.login(email: email, password: password)
-                            }
-                            
-                        }label:{
-                            Text("LOGIN")
-                                .foregroundStyle(.black)
-                                .frame(width: 80, height: 20)
-                                .padding()
-                                .background(Color.blue)
-                            
-                                .cornerRadius(20)
-                            
-                        }
-                    }
-                    if errors != nil{
-                        Text(errors ?? "")
+                    inputFields
+                    loginButton
+                    if let error = loginVM.errorMessage{
+                        Text(error)
                     }
                     Text("Don't have an account?")
                     Button("Signup"){
@@ -75,22 +33,52 @@ struct LoginView: View {
                 .padding()
                 .background(.blue.opacity(0.2))
                 .cornerRadius(20)
-                .onReceive(loginVM.$errorMessage){ errorMessage in
-                    errors = errorMessage
-                }
-                .onReceive(loginVM.$isLogin){ isLogin in
-                    if isLogin{
-                        if let tokens = loginVM.tokens{
-                            authManager.tokens = tokens
-                            authManager.saveTokens(tokens)
-                        }
-                        
-                    }else{
-                        errors = loginVM.errorMessage
-                    }
-                }
-                
             }
+    }
+    
+    private var title: some View {
+        VStack{
+            Text("AuthTest")
+                .font(.title)
+                .fontWeight(.bold)
+        }
+        .padding()
+    }
+    private var inputFields: some View {
+        VStack{
+            Text("Login Here")
+                .font(.headline)
+                .padding(.bottom)
+            TextField("Enter Email", text: $loginVM.email)
+                .padding()
+                .frame(width: 300, height: 50)
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(20)
+                .textInputAutocapitalization(.never)
+            SecureField("Enter Password", text: $loginVM.password)
+                .padding()
+                .frame(width: 300, height: 50)
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(20)
+                .textInputAutocapitalization(.never)
+        }
+    }
+    private var loginButton: some View {
+        Button{
+            Task{
+                loginVM.login(authManager: authManager)
+            }
+            
+        }label:{
+            Text("LOGIN")
+                .foregroundStyle(.black)
+                .frame(width: 80, height: 20)
+                .padding()
+                .background(Color.blue)
+            
+                .cornerRadius(20)
+            
+        }
     }
 }
 

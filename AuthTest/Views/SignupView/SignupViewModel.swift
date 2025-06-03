@@ -8,11 +8,12 @@
 import Foundation
 
 class SignupViewModel: ObservableObject {
-    var baseURL = "http://192.168.1.22:8000"
     @Published var errorMessage: String?
     @Published var signupStatus: Bool = false
+    @Published var email: String = ""
+    @Published var password: String = ""
     
-    func signup(email: String, password: String){
+    func signup(){
         let parameters = ["email": email, "password": password]
         provider.request(.signup(request: parameters)){ result in
             switch result{
