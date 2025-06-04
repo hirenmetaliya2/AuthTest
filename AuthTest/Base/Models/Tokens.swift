@@ -8,9 +8,9 @@
 import Foundation
 
 struct Tokens: Codable{
-    let accessToken: String
-    let tokenType: String
-    let refreshToken: String
+    var accessToken: String
+    var tokenType: String
+    var refreshToken: String
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"

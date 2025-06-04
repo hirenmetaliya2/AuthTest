@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import Moya
+
 
 class LoginViewModel: ObservableObject{
     @Published var errorMessage: String?
     @Published var tokens: Tokens?
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "user@1.com"
+    @Published var password: String = "str"
     
     func login(authManager: AuthManager) {
         let parameters = ["email": email, "password": password]
@@ -36,21 +36,5 @@ class LoginViewModel: ObservableObject{
         }
     }
     
-    func tokenTimestamp() throws -> Date{
-        guard let jwt = tokens?.accessToken else {throw Errors.missingAccessToken}
-        let parts = jwt.components(separatedBy: ".")
-        let payloadPart = parts[1]
-        let base64 = payloadPart
-            .replacingOccurrences(of: "-", with: "+")
-            .replacingOccurrences(of: "_", with: "/")
-        
-        if let data = Data(base64Encoded: base64),
-           let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-           let exp = json["exp"] as? TimeInterval{
-            let expiryDate = Date(timeIntervalSince1970: exp)
-            return expiryDate
-        }else{
-            throw Errors.invalidToken
-        }
-    }
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901F61622DEF2F6F00958615 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 901F61612DEF2F6F00958615 /* netfox */; };
 		90FC58C12DED8AD90088E91C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 90FC58C02DED8AD90088E91C /* CombineMoya */; };
 		90FC58C32DED8AD90088E91C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 90FC58C22DED8AD90088E91C /* Moya */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 			files = (
 				90FC58C32DED8AD90088E91C /* Moya in Frameworks */,
 				90FC58C12DED8AD90088E91C /* CombineMoya in Frameworks */,
+				901F61622DEF2F6F00958615 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				90FC58C02DED8AD90088E91C /* CombineMoya */,
 				90FC58C22DED8AD90088E91C /* Moya */,
+				901F61612DEF2F6F00958615 /* netfox */,
 			);
 			productName = AuthTest;
 			productReference = 90FC58912DED6E1A0088E91C /* AuthTest.app */;
@@ -118,6 +121,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */,
+				901F61602DEF2F6F00958615 /* XCRemoteSwiftPackageReference "netfox" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 90FC58922DED6E1A0088E91C /* Products */;
@@ -353,6 +357,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		901F61602DEF2F6F00958615 /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
 		90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -364,6 +376,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		901F61612DEF2F6F00958615 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 901F61602DEF2F6F00958615 /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
 		90FC58C02DED8AD90088E91C /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 90FC58BF2DED8AD90088E91C /* XCRemoteSwiftPackageReference "Moya" */;

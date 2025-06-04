@@ -13,7 +13,7 @@ class AuthManager: ObservableObject{
     
     @Published var tokens: Tokens? = nil
     
-    init(){
+    private init(){
         if let savedTokens = loadTokens(){
             self.tokens = savedTokens
         }

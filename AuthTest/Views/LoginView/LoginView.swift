@@ -84,6 +84,6 @@ struct LoginView: View {
 
 #Preview {
     LoginView(path: .constant(NavigationPath()))
-        .environmentObject(AuthManager())
+        .environmentObject(AuthManager.shared)
 }
 
