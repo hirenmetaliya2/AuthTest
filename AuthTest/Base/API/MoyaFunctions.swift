@@ -27,6 +27,7 @@ struct MoyaFunctions{
     func makeRequestClosure() -> MoyaProvider<Endpoints>.RequestClosure {
         let requestClosure = { ( endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) in
             do{
+                
                 var request = try endpoint.urlRequest()
                 
                 if let token = endpoint.httpHeaderFields?["Authorization"] {
@@ -38,8 +39,8 @@ struct MoyaFunctions{
                                 if let error = error{
                                     done(.failure(MoyaError.requestMapping(error.localizedDescription)))
                                 }else{
-                                    request.addValue("Bearer \(AuthManager.shared.tokens?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
-                                    done(.success(request))
+                                    request.setValue("Bearer \(AuthManager.shared.tokens?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
+                                        done(.success(request))
                                 }
                             }
                         }else{
